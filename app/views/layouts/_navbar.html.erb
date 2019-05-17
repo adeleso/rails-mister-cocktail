@@ -1,0 +1,18 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <%= link_to cocktails_path, class: "navbar-brand" do %>
+    <% image_tag "alcohol.svg", alt:"logo" %>
+  <% end %>
+
+<div class="navbar-brand mb-0 h1 mr-auto text-justify text-info">
+  My Cocktails
+</div>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <%= link_to "Create a new Cocktail", new_cocktail_path, class: "btn btn-info text-white" %>
+      </li>
+      </li>
+    </ul>
+  </div>
+</div>

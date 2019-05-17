@@ -1,0 +1,11 @@
+<h1>Cocktail#new</h1>
+<p>Find me in app/views/cocktail/new.html.erb</p>
+
+
+<%= simple_form_for(@cocktail, html: { multipart: true }) do |f| %>
+  <%= f.input :name %>
+
+  <%= f.submit "add", class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to 'Back', cocktails_path %>

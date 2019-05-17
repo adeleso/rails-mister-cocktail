@@ -1,0 +1,20 @@
+
+<div class="card-product">
+  <img src="https://cdn-elle.ladmedia.fr/var/plain_site/storage/images/elle-a-table/recettes-de-cuisine/cocktail-bora-bora-sans-alcool-2806526/50409614-1-fre-FR/Cocktail-Bora-Bora-sans-alcool.jpg">
+  <div class="card-product-infos">
+    <h2><%= @cocktail.name %></h2>
+  <ul>
+    <% @cocktail.doses.each do |dose| %>
+      <li><%= dose.description %> of <%= dose.ingredient.name %>
+      </li>
+    <% end %>
+  </ul>
+  </div>
+</div>
+
+
+
+
+
+<%= link_to "add a dose", new_cocktail_dose_path(@cocktail), class: "btn btn-info text-white" %>
+<%= link_to "return to list", cocktails_path, class: "btn btn-info text-white" %>
