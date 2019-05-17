@@ -1,6 +1,7 @@
 
 <div class="card-product">
-  <img src="https://cdn-elle.ladmedia.fr/var/plain_site/storage/images/elle-a-table/recettes-de-cuisine/cocktail-bora-bora-sans-alcool-2806526/50409614-1-fre-FR/Cocktail-Bora-Bora-sans-alcool.jpg">
+  <%= cl_image_tag(@cocktail.photo,
+      width: 400, height: 300, crop: :fill)%>
   <div class="card-product-infos">
     <h2><%= @cocktail.name %></h2>
   <ul>
