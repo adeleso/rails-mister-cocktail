@@ -1,7 +1,6 @@
-require 'open-uri'
+# seeding database
 require 'json'
-
-# seeding cocktails
+require 'open-uri'
 
 puts 'Cleaning Cocktails database...'
 Cocktail.destroy_all
@@ -18,8 +17,9 @@ result["drinks"].each { |drink| Ingredient.create(name: drink["strIngredient1"])
 puts 'Creating Cocktails...'
 url = 'https://raw.githubusercontent.com/teijo/iba-cocktails/master/recipes.json'
 result = JSON.parse(open(url).read)
-result.take(8).each do |cocktail|
-  one = Cocktail.create(name: cocktail['name'], photo: 'http://res.cloudinary.com/dl8rau6sl/image/upload/c_fill,h_300,w_400/v1558100246/av0c5brsttnmbqbmb1ef.jpg')
+
+result.take(6).each do |cocktail|
+  one = Cocktail.create(name: cocktail['name'])
   cocktail['ingredients'].each do |item|
     ing = Ingredient.find_by(name: item['ingredient'])
     if ing.nil?

@@ -1,10 +1,6 @@
 <div class="cards">
 <% @cocktails.each do |thing| %>
-   <%   if thing[:photo].nil?%>
-      <%  thing[:photo] = 'https://images.pexels.com/photos/338713/pexels-photo-338713.jpeg'%>
-      <%  thing.save %>
-    <% end %>
-  <div class="card-category " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%=thing[:photo]%>)">
+      <div class="card-category " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= thing.photo %>)">
     <%= link_to thing.name.capitalize, cocktail_path(thing), class: "text-white" %>
   </div>
 <% end %>
