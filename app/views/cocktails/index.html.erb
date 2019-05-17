@@ -1,6 +1,10 @@
 <div class="cards">
 <% @cocktails.each do |thing| %>
-  <div class="card-category " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://assets.afcdn.com/recipe/20180705/80346_w1024h768c1cx1727cy777cxt0cyt0cxb3883cyb2588.jpg)">
+   <%   if thing[:photo].nil?%>
+      <%  thing[:photo] = 'https://images.pexels.com/photos/338713/pexels-photo-338713.jpeg'%>
+      <%  thing.save %>
+    <% end %>
+  <div class="card-category " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%=thing[:photo]%>)">
     <%= link_to thing.name.capitalize, cocktail_path(thing), class: "text-white" %>
   </div>
 <% end %>
@@ -9,7 +13,3 @@
 <div class="d-flex justify-content-center my-4">
 <%= link_to 'Create a new Cocktail', new_cocktail_path, class: "text-white btn btn-info btn-lg" %>
  </div>
-
-
-<%= cl_image_tag("iownewjn3cmdpa4xvnj3",
-      width: 400, height: 300, crop: :fill) %>
